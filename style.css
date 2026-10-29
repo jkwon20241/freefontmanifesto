@@ -45,10 +45,12 @@ p{margin:0;text-wrap:pretty}
   .progress{margin-top:auto}
   .progress .dots{font-weight:900;font-size:18px;letter-spacing:.06em;color:#d9d9d9;margin:0}
   .progress .dots span.on{color:var(--red)}
-  main,}
+  main{margin-left:var(--side)}
+}
 
 /* ---------- glyph fields ---------- */
-.field{display:block;width:100%;height:auto;overflow:visible}
+.field{display:block;width:100%;max-width:100%;height:auto;overflow:visible}
+.cover,.back{overflow:hidden;max-width:100%}
 .field .ink{fill:var(--ink)} .field .red{fill:var(--red)}
 .field .g{fill:transparent;stroke:var(--outline);stroke-width:1;cursor:pointer;pointer-events:all;transition:fill .35s ease,stroke .35s ease}
 .field .g.on{fill:var(--ink);stroke:transparent}
@@ -56,7 +58,7 @@ p{margin:0;text-wrap:pretty}
 .field .a{fill:var(--red);cursor:pointer;pointer-events:all;transform-box:fill-box;transform-origin:center;transform:rotate(var(--r,0deg));transition:transform .35s ease}
 @media (hover:hover){ .field .g:hover{stroke:var(--ink)} }
 .hero-d,.back-d{display:none}
-@media (min-width:960px){ .hero-d,.back-d{display:block} .hero-m,.back-m{display:none} }
+@media (min-width:960px){ .hero-d,.back-d{display:block} .hero-m,.back-m{display:none} .hero-d{width:min(100%, calc((100vh - 48px) * 1088 / 760))} }
 @media (prefers-reduced-motion:reduce){ .field .g,.field .a{transition:none} html{scroll-behavior:auto} }
 
 .cover{padding:0}
@@ -102,7 +104,7 @@ main>.opening{margin-top:40px !important}
 
 .conclusion p{font-size:clamp(26px,3.4vw,40px);line-height:1.2;font-weight:800;letter-spacing:-.015em;max-width:24em;text-wrap:balance}
 .colophon{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
-.colo-mark{width:110px;height:auto}
+.colo-mark{width:110px;height:auto;aspect-ratio:144/200}
 .colophon p{font-size:15px;line-height:1.5;text-transform:uppercase;letter-spacing:.04em;font-weight:500;max-width:46ch}
 .colophon cite{font-style:italic;text-transform:none}
 

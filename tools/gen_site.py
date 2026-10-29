@@ -22,7 +22,7 @@ def field(w,h,avoid,size,seed,flowers,margin,n=47):
             out.append(f'<path class="a" d="{ast_path(cx-w/2,cy-hh/2,w)}"/>')
     return out
 def svg(W,H,body,cls,label=None):
-    return f'<svg class="{cls}" viewBox="0 0 {W} {H}" aria-hidden="true" focusable="false">{body}</svg>'
+    return f'<svg xmlns="http://www.w3.org/2000/svg" class="{cls}" viewBox="0 0 {W} {H}" width="{W}" height="{H}" preserveAspectRatio="xMidYMid meet" style="aspect-ratio:{W}/{H}" aria-hidden="true" focusable="false">{body}</svg>'
 def hero(W,H,m,szF,bF,bO,bM,gsz,seed,fl,extra=()):
     dF,wF=outline('ABCReproTrial-Black.otf','FREE',szF,-0.01,m,bF)
     dO,wO=outline('ABCReproTrial-Black.otf','FONT',szF,-0.01,m,bO)
@@ -40,7 +40,7 @@ OUT['hero_m']=svg(440,560,hero(440,560,24,104,300,392,476,34,5,6,mob_extra),'fie
 OUT['back_d']=svg(1088,280,'<g class="glyphs">'+''.join(field(1088,280,[],44,23,6,40))+'</g>','field end back-d')
 OUT['back_m']=svg(440,300,'<g class="glyphs">'+''.join(field(440,300,[],34,31,4,20,n=24))+'</g>','field end back-m')
 d,wa=outline('ABCReproTrial-Black.otf','*',260,0,0,250)
-OUT['aster']=f'<svg class="colo-mark" viewBox="0 0 {int(wa)+6} 200" aria-hidden="true" focusable="false"><path d="{R(d)}" fill="none" stroke="#D7262C" stroke-width="2"/></svg>'
+OUT['aster']=f'<svg xmlns="http://www.w3.org/2000/svg" class="colo-mark" width="{int(wa)+6}" height="200" viewBox="0 0 {int(wa)+6} 200" aria-hidden="true" focusable="false"><path d="{R(d)}" fill="none" stroke="#D7262C" stroke-width="2"/></svg>'
 # commercial specimen cards (outlined from the real trial fonts)
 cards=[('gtamerica','GT America','Grilli Type','GT-America-Standard-Bold-Trial.otf','GT-America-Standard-Medium-Trial.otf'),
  ('untitledserif','Untitled Serif','Klim Type Foundry','TestUntitledSerif-Bold.otf','TestUntitledSerif-Medium.otf'),
