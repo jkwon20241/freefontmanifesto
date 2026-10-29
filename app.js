@@ -7,15 +7,17 @@
       const b = el.getBBox();
       return { el, isA: el.classList.contains('a'), yn: (b.y + b.height / 2) / H, i };
     });
-    return { svg, items, mode: svg.classList.contains('cover') ? 'cover' : 'end' };
+    const ys = items.filter(it => !it.isA).map(it => it.yn);
+    return { svg, items, mode: svg.classList.contains('cover') ? 'cover' : 'end', y0: Math.min(...ys), y1: Math.max(...ys) };
   });
 
   function progress(f) {
     const r = f.svg.getBoundingClientRect(), vh = innerHeight;
     if (!r.height) return null; // hidden at this breakpoint
     if (f.mode === 'cover') {
-      // 0 at the top of the page, 1 once the cover has scrolled away
-      return Math.max(0, Math.min(1, -r.top / (r.height * 0.85)));
+      // 0 at the top of the page, 1 once half the cover has scrolled up,
+      // so the whole field has filled while it is still on screen
+      return Math.max(0, Math.min(1, -r.top / (r.height * 0.5)));
     }
     // back cover: 0 when it enters the screen, 1 at the very bottom of the page
     const maxScroll = document.documentElement.scrollHeight - vh;
@@ -29,9 +31,11 @@
     for (const f of fields) {
       const p = progress(f);
       if (p === null) continue;
-      const q = f.mode === 'cover' ? p * (1 + BAND) : p; // the cover's wave passes fully; the back cover ends inked
+      // cover: outlines fill into black top→bottom as you scroll down (and empty again as you scroll back up)
+      // back cover: a band of ink travels down and the last rows stay inked at the end of the page
+      const q = f.mode === 'cover' ? f.y0 + p * (f.y1 - f.y0 + 0.001) : p;
       for (const it of f.items) {
-        const on = it.yn <= q && it.yn > q - BAND;
+        const on = f.mode === 'cover' ? (p > 0 && it.yn <= q) : (it.yn <= q && it.yn > q - BAND);
         if (it.isA) {
           it.el.style.setProperty('--r', `${Math.round(p * 360 + it.i * 15 + (it.el._spin || 0))}deg`);
         } else {
