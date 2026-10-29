@@ -45,8 +45,7 @@ p{margin:0;text-wrap:pretty}
   .progress{margin-top:auto}
   .progress .dots{font-weight:900;font-size:18px;letter-spacing:.06em;color:#d9d9d9;margin:0}
   .progress .dots span.on{color:var(--red)}
-  main,.foot{margin-left:var(--side)}
-}
+  main,}
 
 /* ---------- glyph fields ---------- */
 .field{display:block;width:100%;height:auto;overflow:visible}
@@ -107,7 +106,4 @@ main>.opening{margin-top:40px !important}
 .colophon p{font-size:15px;line-height:1.5;text-transform:uppercase;letter-spacing:.04em;font-weight:500;max-width:46ch}
 .colophon cite{font-style:italic;text-transform:none}
 
-.back{padding:0;margin-top:8px}
-.foot{border-top:1px solid var(--rule);margin:0 24px;padding:20px 0 40px;font-size:15px;color:var(--meta);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-.foot p{max-width:70ch}
-@media (min-width:960px){ .foot{margin-right:var(--pad);margin-left:calc(var(--side) + var(--pad))} }
+.back{padding:0 0 48px;margin-top:8px}
