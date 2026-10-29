@@ -81,11 +81,9 @@ main>.opening{margin-top:40px !important}
 .mark{color:var(--red);font-weight:900}
 .body{max-width:62ch}
 .body p+p{margin-top:1em}
-.folio{color:var(--red);font-weight:900;font-size:22px;letter-spacing:.06em;justify-self:end;line-height:1}
 @media (min-width:960px){
   .essay{grid-template-columns:minmax(220px,300px) minmax(0,1fr);column-gap:64px;row-gap:24px}
   .essay h2{font-size:28px}
-  .folio{grid-column:2}
 }
 
 .specimens h2{font-size:28px;margin-bottom:12px}
