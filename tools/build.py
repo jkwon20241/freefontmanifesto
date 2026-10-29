@@ -14,7 +14,7 @@ pairs=[("gtamerica","GT America","Grilli Type","A broad family that bridges Amer
 ph=''
 for k,cn,cf,cd,fam,on,of,od in pairs:
     ph+=f'''<div class="pair">
-  <figure class="spec"><img src="img/{k}.svg?v={V}" width="400" height="358" alt="{cn} by {cf}: the word FREE struck through, then its alphabet and numerals" loading="lazy"><figcaption class="cap"><b>Premium</b>{cd}</figcaption></figure>
+  <figure class="spec"><img src="img/{k}.svg?v={V}" width="304" height="358" alt="{cn} by {cf}: the word FREE struck through, then its alphabet and numerals" loading="lazy"><figcaption class="cap"><b>Premium</b>{cd}</figcaption></figure>
   <figure class="spec"><div class="live" style="font-family:'{fam}'"><p class="free">FREE</p><p class="name" style="font-family:'{fam}'">{on}</p><p class="foundry">{of}</p><p class="alpha">Aa Bb Cc Dd Ee<br>Ff Gg Hh Ii Jj Kk<br>Ll Mm Nn Oo Pp<br>Qq Rr Ss Tt Uu<br>Vv Ww Xx Yy Zz</p><p class="nums">0123456789</p></div><figcaption class="cap"><b>Open source</b>{od}</figcaption></figure>
 </div>'''
 out=t.replace('{{NAV}}',navh).replace('{{PAIRS}}',ph).replace('{{HERO_D}}',S['hero_d']).replace('{{HERO_M}}',S['hero_m']).replace('{{BACK_D}}',S['back_d']).replace('{{BACK_M}}',S['back_m']).replace('{{ASTER}}',S['aster']).replace('{{V}}',V)

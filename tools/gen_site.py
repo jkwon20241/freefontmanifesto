@@ -57,6 +57,6 @@ for key,name,fd,bold,med in cards:
     for ln in spec+['','0123456789']:
         if ln: d,_=outline(med,ln,24,0,0,y); b+=f'<path d="{R(d)}" fill="#111"/>'
         y+=30
-    open(f'site/img/{key}.svg','w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 400 {y-14}" width="400" height="{y-14}">{b}</svg>')
+    open(f'site/img/{key}.svg','w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 304 {y-14}" width="304" height="{y-14}">{b}</svg>')
 json.dump(OUT,open('svgs.json','w'))
 print({k:len(v) for k,v in OUT.items()}, [k for k,*_ in cards])

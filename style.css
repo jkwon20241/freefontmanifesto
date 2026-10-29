@@ -89,11 +89,18 @@ main>.opening{margin-top:40px !important}
 
 .specimens h2{font-size:28px;margin-bottom:12px}
 .note{color:var(--red);font-size:16px;max-width:62ch;margin-bottom:48px}
-.pair{display:grid;gap:40px;padding:40px 0;border-top:1px solid #ddd}
-.pair:first-of-type{border-top:0;padding-top:0}
-@media (min-width:720px){ .pair{grid-template-columns:1fr 1fr;column-gap:48px} }
-.spec img{display:block;width:100%;max-width:400px;height:auto}
-.spec .live{max-width:400px}
+/* each pair is a centred block; on phones the two specimens stack, still centred,
+   and the space between pairs is double the space inside a pair */
+.pair{display:grid;grid-template-columns:min(100%,400px);justify-content:center;row-gap:56px}
+.pair+.pair{margin-top:112px}
+.spec{margin:0;width:100%}
+@media (min-width:720px){ .pair{grid-template-columns:repeat(2,min(46%,400px));column-gap:clamp(40px,7vw,120px)} .pair+.pair{margin-top:104px} }
+.spec img{display:block;width:304px;max-width:100%;height:auto}
+@media (max-width:719px){
+  /* every specimen is the same 300px column, centred on the screen */
+  .pair{grid-template-columns:min(304px,100%)}
+  .spec .cap{max-width:none}
+}
 .spec .free{font-size:64px;line-height:1;font-weight:700;margin:0 0 14px;color:var(--free)}
 .spec .name{font-size:16px;font-weight:700;color:var(--red);line-height:1.35}
 .spec .foundry{font-size:16px;font-weight:700;line-height:1.35;margin-bottom:28px}
