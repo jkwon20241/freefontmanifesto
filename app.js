@@ -62,7 +62,7 @@
   const ids = ['intro', 'q1', 'specimens', 'q2', 'q3', 'q4', 'conclusion', 'colophon'];
   const sections = ids.map(id => document.getElementById(id));
   const links = [...document.querySelectorAll('.contents a')];
-  const dots = [...document.querySelectorAll('.progress .dots .grp')];
+  const dots = [...document.querySelectorAll('.progress .dots span')];
   const questionOrder = ['q1', 'q2', 'q3', 'q4'];
   function updateNav() {
     let current = null;
