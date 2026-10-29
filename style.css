@@ -1,5 +1,5 @@
 :root{
-  --paper:#fff; --ink:#111; --red:#D7262C; --link:#1E5CD6; --meta:#5E5E5E; --rule:#111; --outline:#BDBDBD;
+  --paper:#fff; --ink:#111; --red:#D7262C; --link:#1E5CD6; --meta:#5E5E5E; --rule:#111; --outline:#BDBDBD; --free:#8C8C8C;
   --side:320px; --pad:64px;
   --sans:"Hanken Grotesk",system-ui,sans-serif;
 }
@@ -95,7 +95,7 @@ main>.opening{margin-top:40px !important}
 @media (min-width:720px){ .pair{grid-template-columns:1fr 1fr;column-gap:48px} }
 .spec img{display:block;width:100%;max-width:400px;height:auto}
 .spec .live{max-width:400px}
-.spec .free{font-size:64px;line-height:1;font-weight:700;margin:0 0 14px}
+.spec .free{font-size:64px;line-height:1;font-weight:700;margin:0 0 14px;color:var(--free)}
 .spec .name{font-size:16px;font-weight:700;color:var(--red);line-height:1.35}
 .spec .foundry{font-size:16px;font-weight:700;line-height:1.35;margin-bottom:28px}
 .spec .alpha{font-size:24px;line-height:1.25;font-weight:500}

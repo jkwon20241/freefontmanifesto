@@ -49,8 +49,8 @@ cards=[('gtamerica','GT America','Grilli Type','GT-America-Standard-Bold-Trial.o
 spec=['Aa Bb Cc Dd Ee','Ff Gg Hh Ii Jj Kk','Ll Mm Nn Oo Pp','Qq Rr Ss Tt Uu','Vv Ww Xx Yy Zz']
 os.makedirs('site/img',exist_ok=True)
 for key,name,fd,bold,med in cards:
-    b=''; d,wF=outline(bold,'FREE',64,0,0,54); b+=f'<path d="{R(d)}" fill="#111"/>'
-    b+=f'<rect x="-2" y="{54-64*0.36:.1f}" width="{wF+4:.1f}" height="{64*0.07:.1f}" fill="#111"/>'
+    b=''; d,wF=outline(bold,'FREE',64,0,0,54); b+=f'<path d="{R(d)}" fill="#8C8C8C"/>'
+    b+=f'<rect x="-2" y="{54-64*0.36:.1f}" width="{wF+4:.1f}" height="{64*0.07:.1f}" fill="#8C8C8C"/>'
     d,_=outline(bold,name,16,0,0,92); b+=f'<path d="{R(d)}" fill="#D7262C"/>'
     d,_=outline(bold,fd,16,0,0,114); b+=f'<path d="{R(d)}" fill="#111"/>'
     y=162
