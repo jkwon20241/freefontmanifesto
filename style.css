@@ -41,7 +41,7 @@ p{margin:0;text-wrap:pretty}
   .sidebar .contents li{margin-bottom:16px}
   .sidebar .contents a{font-size:16px;color:var(--meta)}
   .sidebar .contents a:hover{color:var(--ink)}
-  .sidebar .contents a[aria-current="true"]{color:var(--ink);box-shadow:-14px 0 0 -10px var(--red)}
+  .sidebar .contents a[aria-current="true"]{color:var(--ink)}
   .progress{margin-top:auto}
   .progress .dots{font-weight:900;font-size:18px;letter-spacing:.06em;color:#d9d9d9;margin:0}
   .progress .dots span.on{color:var(--red)}
