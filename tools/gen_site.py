@@ -4,6 +4,7 @@ R=lambda d: re.sub(r'-?\d+\.\d+', lambda m: ('%.1f'%float(m.group())).rstrip('0'
 AST=[(17.1,44),(25.3,32.1),(33.4,44),(45.1,36),(36.7,25.5),(50.6,21.7),(46.4,8.6),(32.1,13.6),(32.7,0),(17.8,0),(18.6,13.6),(4.2,8.6),(0,21.8),(14,25.5),(5.5,35.9)]
 def ast_path(x,y,w):
     s=w/50.6; return 'M'+' L'.join(f'{x+px*s:.1f} {y+py*s:.1f}' for px,py in AST)+'Z'
+AW=18  # one asterisk size across every glyph field
 def field(w,h,avoid,size,seed,flowers,margin,n=47):
     random.seed(seed); L=list("loremipsumdolorsitametconsecteturadipiscingelit")[:n]; random.shuffle(L)
     pts=[]; t=0; mind=size*1.15
@@ -18,7 +19,7 @@ def field(w,h,avoid,size,seed,flowers,margin,n=47):
             d,wd=outline('ABCReproTrial-Black.otf',L[i],size,0,x,y); a=random.uniform(-6,6)
             out.append(f'<path class="g" d="{R(d)}" transform="rotate({a:.1f} {x+wd/2:.1f} {y-size*0.3:.1f})"/>')
         else:
-            r=size*0.2; cx,cy=x+8,y-size*0.35; w=2.1*r; hh=w*44/50.6
+            r=size*0.2; cx,cy=x+8,y-size*0.35; w=AW; hh=w*44/50.6
             out.append(f'<path class="a" d="{ast_path(cx-w/2,cy-hh/2,w)}"/>')
     return out
 def svg(W,H,body,cls,label=None):
@@ -31,7 +32,7 @@ def hero(W,H,m,szF,bF,bO,bM,gsz,seed,fl,extra=()):
     cap=0.74
     av=[(m-8,bF-szF*cap-8,m+wF+12,bF+12),(m-8,bO-szF*cap-8,m+wO+12,bO+12),(m-8,bM-sz*cap-8,W-m+8,H)]
     g=field(W,H,av,gsz,seed,fl,m)
-    for (x,y,w) in extra: g.append(f'<path class="a" d="{ast_path(x,y,w)}"/>')
+    for (x,y,w) in extra: g.append(f'<path class="a" d="{ast_path(x+(w-AW)/2,y+(w-AW)*44/50.6/2,AW)}"/>')
     return f'<g class="glyphs">{"".join(g)}</g><path class="ink" d="{R(dF)}"/><path class="ink" d="{R(dO)}"/><path class="red" d="{R(dM)}"/>'
 OUT={}
 OUT['hero_d']=svg(1088,760,hero(1088,760,64,230,380,570,712,52,11,9),'field cover hero-d')
